@@ -7,6 +7,10 @@ public class Titulo {
     private double somaDasAvaliacoes;
     private int totalDeAvaliacoes;
     private int duracaoEmMinutos;
+
+    public String getNome() {
+        return nome;
+    }
     
     public int getTotalDeaAvaliacoes(){
         return totalDeAvaliacoes;
