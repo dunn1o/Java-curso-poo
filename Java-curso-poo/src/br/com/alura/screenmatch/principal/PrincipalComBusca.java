@@ -23,5 +23,7 @@ public class PrincipalComBusca {
         HttpResponse<String> response = client
             .send(request, BodyHandlers.ofString());
         System.out.println(response.body());
+
+        leitura.close();
     }
 }
