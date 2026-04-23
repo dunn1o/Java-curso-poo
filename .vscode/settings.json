@@ -1,0 +1,8 @@
+{
+    "java.project.sourcePaths": [
+        "Java-curso-poo\\src"
+    ],
+    "java.project.referencedLibraries": [
+        "Java-curso-poo\\lib\\gson-2.13.2.jar"
+    ]
+}
