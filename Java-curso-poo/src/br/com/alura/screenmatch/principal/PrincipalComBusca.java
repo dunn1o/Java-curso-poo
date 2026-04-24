@@ -8,7 +8,12 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.util.Scanner;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import br.com.alura.screenmatch.modelos.Titulo;
+import br.com.alura.screenmatch.modelos.TituloOmdb;
 
 public class PrincipalComBusca {
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -23,11 +28,20 @@ public class PrincipalComBusca {
             .uri(URI.create(endereco))
             .build();
         HttpResponse<String> response = client
-            .send(request, BodyHandlers.ofString());
-        System.out.println(response.body());
+            .send(request, BodyHandlers.ofString());        
+        String json = response.body();
+        System.out.println(json);
 
         leitura.close();
 
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .create();
+
+        TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class);
+        System.out.println(meuTituloOmdb);
+        Titulo meuTitulo = new Titulo(meuTituloOmdb);
+        System.out.println("Titulo ja convertido");
+        System.out.println(meuTitulo);
     }
 }
