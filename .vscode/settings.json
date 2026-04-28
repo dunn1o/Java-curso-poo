@@ -1,8 +1,9 @@
 {
     "java.project.sourcePaths": [
-        "Java-curso-poo\\src"
+        "Java-curso-poo/src"
     ],
+    "java.project.outputPath": "Java-curso-poo/bin",
     "java.project.referencedLibraries": [
-        "Java-curso-poo\\lib\\gson-2.13.2.jar"
+        "Java-curso-poo/lib/**/*.jar"
     ]
 }
